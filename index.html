@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<!--
+  index.html — YS Books Main App
+  Requiere autenticación: redirige a login.html si no hay sesión.
+-->
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YS Books — Tu Universo de Libros</title>
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+            <svg viewBox="0 0 40 40" fill="none" width="36">
+                <rect width="40" height="40" rx="10" fill="url(#lg1)" />
+                <path d="M10 28V14a2 2 0 012-2h6v18H12a2 2 0 01-2-2z" fill="white" opacity=".9" />
+                <path d="M20 12h8a2 2 0 012 2v14a2 2 0 01-2 2h-8V12z" fill="white" opacity=".6" />
+                <defs>
+                    <linearGradient id="lg1" x1="0" y1="0" x2="40" y2="40">
+                        <stop stop-color="#7C3AED" />
+                        <stop offset="1" stop-color="#2563EB" />
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#inicio" class="nav-icon active" title="Inicio" data-section="inicio">
+                <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z" stroke="currentColor"
+                        stroke-width="1.8" stroke-linejoin="round" />
+                    <path d="M9 21V12h6v9" stroke="currentColor" stroke-width="1.8" />
+                </svg>
+            </a>
+            <a href="#catalogo" class="nav-icon" title="Catálogo" data-section="catalogo">
+                <svg viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.8" />
+                    <rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.8" />
+                    <rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.8" />
+                    <rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.8" />
+                </svg>
+            </a>
+            <a href="#ofertas" class="nav-icon" title="Ofertas" data-section="ofertas">
+                <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z" stroke="currentColor"
+                        stroke-width="1.8" stroke-linejoin="round" />
+                </svg>
+            </a>
+            <a href="#autores" class="nav-icon" title="Autores" data-section="autores">
+                <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="1.8" />
+                    <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="1.8" />
+                    <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor"
+                        stroke-width="1.8" />
+                </svg>
+            </a>
+            <a href="#contacto" class="nav-icon" title="Contacto" data-section="contacto">
+                <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke="currentColor"
+                        stroke-width="1.8" stroke-linejoin="round" />
+                </svg>
+            </a>
+        </nav>
+        <button class="cart-fab" id="cartBtn" title="Carrito">
+            <svg viewBox="0 0 24 24" fill="none" width="20">
+                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" stroke="currentColor" stroke-width="1.8"
+                    stroke-linejoin="round" />
+                <line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="1.8" />
+                <path d="M16 10a4 4 0 01-8 0" stroke="currentColor" stroke-width="1.8" />
+            </svg>
+            <span class="cart-count" id="cartCount">0</span>
+        </button>
+    </aside>
+
+    <!-- ===== MAIN ===== -->
+    <main class="main-content">
+        <header class="top-header">
+            <div class="header-nav">
+                <a href="#inicio" class="header-link active">Inicio</a>
+                <a href="#catalogo" class="header-link">Catálogo</a>
+                <a href="#ofertas" class="header-link">Ofertas</a>
+                <a href="#contacto" class="header-link">Contacto</a>
+            </div>
+            <div class="header-search">
+                <svg viewBox="0 0 24 24" fill="none" width="15">
+                    <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="1.8" />
+                    <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                </svg>
+                <input type="text" id="searchInput" placeholder="Buscar libros, autores..." />
+            </div>
+            <div class="header-user">
+                <button class="icon-btn notif-btn" id="notifBtn" title="Notificaciones"
+                    style="cursor:default;pointer-events:none;opacity:0.6;">
+                    <svg viewBox="0 0 24 24" fill="none" width="18">
+                        <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="currentColor" stroke-width="1.8" />
+                        <path d="M13.73 21a2 2 0 01-3.46 0" stroke="currentColor" stroke-width="1.8" />
+                    </svg>
+                    <span class="badge" id="notifBadge">3</span>
+                </button>
+                <button class="icon-btn mail-btn" id="mailBtn" title="Mensajes"
+                    style="cursor:default;pointer-events:none;opacity:0.6;">
+                    <svg viewBox="0 0 24 24" fill="none" width="18">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                            stroke="currentColor" stroke-width="1.8" />
+                        <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="1.8" />
+                    </svg>
+                    <span class="badge" id="mailBadge">1</span>
+                </button>
+                <button class="icon-btn settings-btn" id="settingsBtn" title="Configuración"
+                    style="cursor:default;pointer-events:none;opacity:0.6;">
+                    <svg viewBox="0 0 24 24" fill="none" width="18">
+                        <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8" />
+                        <path
+                            d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"
+                            stroke="currentColor" stroke-width="1.8" />
+                    </svg>
+                </button>
+                <div class="user-profile" id="userProfileBtn">
+                    <div class="user-info">
+                        <span class="user-name" id="displayName">Lector</span>
+                        <span class="user-role">Miembro</span>
+                    </div>
+                    <div class="user-avatar" id="displayAvatar">L</div>
+                </div>
+                <!-- Botón cerrar sesión -->
+                <button class="btn-logout" id="logoutBtn" title="Cerrar sesión">
+                    <svg viewBox="0 0 24 24" fill="none" width="14" stroke="currentColor" stroke-width="2">
+                        <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" />
+                        <polyline points="16 17 21 12 16 7" />
+                        <line x1="21" y1="12" x2="9" y2="12" />
+                    </svg>
+                    Salir
+                </button>
+            </div>
+        </header>
+
+        <div class="content-scroll" id="contentScroll">
+            <!-- HERO -->
+            <section id="inicio" class="hero-banner">
+                <div class="hero-text">
+                    <span class="hero-tag">✦ Nuevas llegadas 2025</span>
+                    <h1>Descubre tu próximo<br /><em>libro favorito</em></h1>
+                    <p>Más de 5,000 títulos esperan por ti. Explora ciencia, arte, cocina, diseño y mucho más.</p>
+                    <div class="hero-actions">
+                        <button class="btn-primary" onclick="goTo('catalogo')">Explorar catálogo</button>
+                        <button class="btn-ghost" onclick="goTo('ofertas')">Ver ofertas</button>
+                    </div>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat"><span class="stat-num">35</span><span class="stat-lbl">Títulos</span></div>
+                    <div class="hero-stat"><span class="stat-num">8</span><span class="stat-lbl">Categorías</span></div>
+                    <div class="hero-stat"><span class="stat-num">4.7★</span><span class="stat-lbl">Valoración</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- LECTURA ANTERIOR -->
+            <section class="section" id="lectura-anterior">
+                <div class="section-header">
+                    <h2>Lista de deseos</h2>
+                    <button class="filter-btn" onclick="openAllBooksModal()">Ver todos →</button>
+                </div>
+                <div class="books-row" id="previousBooks"></div>
+            </section>
+
+            <!-- MATERIAS -->
+            <section class="section" id="materias">
+                <div class="section-header">
+                    <h2>Sección por materias</h2>
+                </div>
+                <div class="subjects-grid">
+                    <div class="subject-card" data-category="arte" onclick="filterByCategory('arte')">
+                        <div class="subject-icon">🎨</div>
+                        <div class="subject-info"><span class="subject-name">Arte</span><span class="subject-count">5
+                                <small>libros</small></span></div>
+                    </div>
+                    <div class="subject-card" data-category="psicologia" onclick="filterByCategory('psicologia')">
+                        <div class="subject-icon">🧠</div>
+                        <div class="subject-info"><span class="subject-name">Psicología</span><span
+                                class="subject-count">5 <small>libros</small></span></div>
+                    </div>
+                    <div class="subject-card" data-category="misterio" onclick="filterByCategory('misterio')">
+                        <div class="subject-icon">🕵️</div>
+                        <div class="subject-info"><span class="subject-name">Misterio</span><span
+                                class="subject-count">5 <small>libros</small></span></div>
+                    </div>
+                    <div class="subject-card" data-category="espiritualidad"
+                        onclick="filterByCategory('espiritualidad')">
+                        <div class="subject-icon">✨</div>
+                        <div class="subject-info"><span class="subject-name">Espiritualidad</span><span
+                                class="subject-count">5 <small>libros</small></span></div>
+                    </div>
+                    <div class="subject-card" data-category="novela" onclick="filterByCategory('novela')">
+                        <div class="subject-icon">📖</div>
+                        <div class="subject-info"><span class="subject-name">Novela</span><span class="subject-count">5
+                                <small>libros</small></span></div>
+                    </div>
+                    <div class="subject-card" data-category="historia" onclick="filterByCategory('historia')">
+                        <div class="subject-icon">🌍</div>
+                        <div class="subject-info"><span class="subject-name">Historia</span><span
+                                class="subject-count">4 <small>libros</small></span></div>
+                    </div>
+                    <div class="subject-card" data-category="detective" onclick="filterByCategory('detective')">
+                        <div class="subject-icon">🔍</div>
+                        <div class="subject-info"><span class="subject-name">Detective</span><span
+                                class="subject-count">3 <small>libros</small></span></div>
+                    </div>
+                    <div class="subject-card" data-category="negocios" onclick="filterByCategory('negocios')">
+                        <div class="subject-icon">💼</div>
+                        <div class="subject-info"><span class="subject-name">Negocios</span><span
+                                class="subject-count">3 <small>libros</small></span></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CATÁLOGO -->
+            <section class="section" id="catalogo">
+                <div class="section-header">
+                    <h2>Nuevos libros</h2>
+                    <button class="show-all-btn" onclick="openAllBooksModal()">Ver todos →</button>
+                </div>
+                <div class="books-grid" id="newBooksGrid"></div>
+            </section>
+
+            <!-- OFERTAS -->
+            <section class="section" id="ofertas">
+                <div class="section-header">
+                    <h2>🏷️ Ofertas especiales</h2>
+                </div>
+                <div class="offers-grid" id="offersGrid"></div>
+            </section>
+
+            <!-- AUTORES -->
+            <section class="section" id="autores">
+                <div class="section-header">
+                    <h2>Escritores y Autores</h2>
+                    <button class="show-all-btn" onclick="openAllAuthorsModal()">Ver todos →</button>
+                </div>
+                <div class="authors-grid" id="authorsGrid"></div>
+            </section>
+
+            <!-- FOOTER -->
+            <footer id="contacto" class="footer">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <div class="footer-logo">
+                            <svg viewBox="0 0 40 40" fill="none" width="30">
+                                <rect width="40" height="40" rx="10" fill="url(#lg2)" />
+                                <path d="M10 28V14a2 2 0 012-2h6v18H12a2 2 0 01-2-2z" fill="white" opacity=".9" />
+                                <path d="M20 12h8a2 2 0 012 2v14a2 2 0 01-2 2h-8V12z" fill="white" opacity=".6" />
+                                <defs>
+                                    <linearGradient id="lg2" x1="0" y1="0" x2="40" y2="40">
+                                        <stop stop-color="#7C3AED" />
+                                        <stop offset="1" stop-color="#2563EB" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                            <span>YS Books</span>
+                        </div>
+                        <p>Tu librería de confianza. Más de 5,000 títulos para explorar, aprender y soñar.</p>
+
+                        <div class="social-links">
+                            <a href="https://facebook.com" target="_blank" class="social-link" title="Facebook"
+                                aria-label="Facebook">
+                                <img src="https://i.pinimg.com/1200x/d1/bf/a9/d1bfa97a3dd4a8b4eedea7d53f0f3e7a.jpg"
+                                    alt="Facebook">
+                            </a>
+                            <a href="https://twitter.com" target="_blank" class="social-link" title="X" aria-label="X">
+                                <img src="https://i.pinimg.com/736x/9e/0f/38/9e0f389dac42629515b009524ed47ed7.jpg"
+                                    alt="X">
+                            </a>
+                            <a href="https://instagram.com" target="_blank" class="social-link" title="Instagram"
+                                aria-label="Instagram">
+                                <img src="https://i.pinimg.com/736x/d8/12/03/d81203a4741e6f1354124823f3976ef1.jpg"
+                                    alt="Instagram">
+                            </a>
+                            <a href="https://linkedin.com" target="_blank" class="social-link" title="LinkedIn"
+                                aria-label="LinkedIn">
+                                <img src="https://i.pinimg.com/1200x/51/b8/f7/51b8f778a53d334ddfb1a08132d60807.jpg"
+                                    alt="LinkedIn">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Tienda</h4>
+                        <a href="#" onclick="openAllBooksModal();return false">Catálogo completo</a>
+                        <a href="#" onclick="filterByCategory('other');return false">Novedades</a>
+                        <a href="#" onclick="openOffers();return false">Más vendidos</a>
+                        <a href="#" onclick="goTo('ofertas');return false">Ofertas</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Categorías</h4>
+                        <span class="footer-static">Arte</span>
+                        <span class="footer-static">Psicología</span>
+                        <span class="footer-static">Misterio</span>
+                        <span class="footer-static">Espiritualidad</span>
+                        <span class="footer-static">Novela</span>
+                        <span class="footer-static">Historia</span>
+                        <span class="footer-static">Detective</span>
+                        <span class="footer-static">Negocios</span>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Soporte</h4>
+                        <span class="footer-static">Contacto</span>
+                        <span class="footer-static">Envíos</span>
+                        <span class="footer-static">Devoluciones</span>
+                        <span class="footer-static">Centro de ayuda</span>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <span>© 2025 YS Books. Todos los derechos reservados.</span>
+                    <div class="footer-links">
+                        <a href="#"
+                            onclick="showToast('🔒 Tu privacidad es importante para nosotros');return false">Privacidad</a>
+                        <a href="#" onclick="showToast('📄 Términos y condiciones de uso');return false">Términos</a>
+                        <a href="#"
+                            onclick="showToast('🍪 Usamos cookies para mejorar tu experiencia');return false">Cookies</a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </main>
+
+    <!-- ===== RIGHT PANEL ===== -->
+    <aside class="right-panel">
+        <section class="panel-section">
+            <div class="panel-header">
+                <h3>Libros populares</h3><button class="show-all-btn small"
+                    style="cursor:default;pointer-events:none;opacity:0.6;">Ver todos</button>
+            </div>
+            <div class="popular-grid" id="popularGrid"></div>
+        </section>
+        <section class="panel-section">
+            <div class="panel-header">
+                <h3>Autores destacados</h3><button class="show-all-btn small"
+                    style="cursor:default;pointer-events:none;opacity:0.6;">Ver todos</button>
+            </div>
+            <div class="authors-compact" id="authorsCompact"></div>
+        </section>
+        <section class="panel-section">
+            <div class="panel-header">
+                <h3>Libros especiales</h3><button class="show-all-btn small"
+                    style="cursor:default;pointer-events:none;opacity:0.6;">Ver todos</button>
+            </div>
+            <div class="special-list" id="specialList"></div>
+        </section>
+    </aside>
+
+    <!-- ===== OVERLAYS ===== -->
+    <div class="overlay" id="mainOverlay" onclick="closeAllPanels()"></div>
+
+    <!-- CART DRAWER -->
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3>🛒 Mi carrito</h3>
+            <button class="close-btn" onclick="toggleCart()">✕</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="cart-empty"><span>📚</span>
+                <p>Tu carrito está vacío</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total"><span>Total:</span><span class="total-amount" id="cartTotal">$0</span></div>
+            <button class="btn-primary full-width" onclick="openCheckout()">Finalizar compra →</button>
+        </div>
+    </div>
+
+    <!-- NOTIFICACIONES PANEL -->
+    <div class="side-panel" id="notifPanel">
+        <div class="panel-top">
+            <h3>🔔 Notificaciones</h3><button class="close-btn" onclick="closePanel('notifPanel')">✕</button>
+        </div>
+        <div class="notif-list" id="notifList"></div>
+        <div class="panel-footer"><button class="btn-ghost full-width" onclick="markAllRead()">Marcar todas como
+                leídas</button></div>
+    </div>
+
+    <!-- MENSAJES PANEL -->
+    <div class="side-panel" id="mailPanel">
+        <div class="panel-top">
+            <h3>✉️ Mensajes</h3><button class="close-btn" onclick="closePanel('mailPanel')">✕</button>
+        </div>
+        <div class="mail-list" id="mailList"></div>
+        <div class="panel-footer">
+            <button class="btn-primary full-width" onclick="openComposeModal()">✏️ Nuevo mensaje</button>
+        </div>
+    </div>
+
+    <!-- ===== MODALES ===== -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
+
+    <!-- DETALLE LIBRO -->
+    <div class="modal" id="bookModal">
+        <button class="modal-x" onclick="closeModal()">✕</button>
+        <div id="bookModalContent"></div>
+    </div>
+
+    <!-- VER TODOS LIBROS -->
+    <div class="modal modal-wide" id="allBooksModal">
+        <div class="modal-header">
+            <h2 id="allBooksTitle">Todos los libros</h2><button class="modal-x rel" onclick="closeModal()">✕</button>
+        </div>
+        <div class="modal-search-bar">
+            <input type="text" id="allBooksSearch" placeholder="Buscar en catálogo completo..."
+                oninput="filterAllBooks(this.value)" />
+            <div class="modal-filter-chips" id="modalFilterChips"></div>
+        </div>
+        <div class="all-books-grid" id="allBooksGrid"></div>
+    </div>
+
+    <!-- VER TODOS AUTORES -->
+    <div class="modal modal-wide" id="allAuthorsModal">
+        <div class="modal-header">
+            <h2>Todos los autores</h2><button class="modal-x rel" onclick="closeModal()">✕</button>
+        </div>
+        <div class="all-authors-grid" id="allAuthorsGrid"></div>
+    </div>
+
+    <!-- CHECKOUT -->
+    <div class="modal modal-sm" id="checkoutModal">
+        <div class="modal-header">
+            <h2>🛒 Finalizar compra</h2><button class="modal-x rel" onclick="closeModal()">✕</button>
+        </div>
+        <div class="checkout-body">
+            <div class="checkout-confirm-wrap">
+                <div class="checkout-icon">🎉</div>
+                <h3 class="checkout-confirm-title">¡Todo listo!</h3>
+                <p class="checkout-confirm-msg">Tu pedido ha sido recibido con éxito.<br />En breve nos pondremos en
+                    contacto contigo.</p>
+                <div class="checkout-total-row"><span>Total a pagar:</span><strong id="checkoutTotal">$0</strong></div>
+                <button class="btn-primary full-width large-btn" id="confirmOrder">✅ Confirmar pedido</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONFIGURACIÓN -->
+    <div class="modal modal-sm" id="settingsModal">
+        <div class="modal-header">
+            <h2>⚙️ Configuración</h2><button class="modal-x rel" onclick="closeModal()">✕</button>
+        </div>
+        <div class="settings-body">
+            <div class="settings-section">
+                <h4>Perfil</h4>
+                <div class="form-group"><label>Nombre de usuario</label><input id="stName" type="text"
+                        placeholder="Tu nombre" /></div>
+                <div class="form-group"><label>Correo</label><input id="stEmail" type="email"
+                        placeholder="tu@correo.com" /></div>
+                <button class="btn-primary" onclick="saveProfile()">Guardar perfil</button>
+            </div>
+            <div class="settings-section">
+                <h4>Notificaciones</h4>
+                <label class="toggle-row"><span>Nuevos libros</span><input type="checkbox" id="stNotifBooks"
+                        checked /><span class="toggle"></span></label>
+                <label class="toggle-row"><span>Ofertas y descuentos</span><input type="checkbox" id="stNotifOffers"
+                        checked /><span class="toggle"></span></label>
+                <label class="toggle-row"><span>Estado de pedido</span><input type="checkbox" id="stNotifOrders"
+                        checked /><span class="toggle"></span></label>
+            </div>
+            <div class="settings-section">
+                <h4>Apariencia</h4>
+                <label class="toggle-row"><span>Modo oscuro</span><input type="checkbox" id="stDark" checked /><span
+                        class="toggle"></span></label>
+                <label class="toggle-row"><span>Animaciones</span><input type="checkbox" id="stAnim" checked /><span
+                        class="toggle"></span></label>
+            </div>
+            <div class="settings-section">
+                <h4>Cuenta</h4>
+                <button class="btn-ghost full-width" onclick="showToast('📋 Historial de pedidos próximamente')">Ver
+                    historial de pedidos</button>
+                <button class="btn-ghost full-width" style="margin-top:8px;color:#ef4444;border-color:#ef4444"
+                    onclick="cerrarSesion()">Cerrar sesión</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- REDACTAR MENSAJE -->
+    <div class="modal modal-sm" id="composeModal">
+        <div class="modal-header">
+            <h2>✏️ Nuevo mensaje</h2><button class="modal-x rel" onclick="closeModal()">✕</button>
+        </div>
+        <div class="checkout-body">
+            <div class="form-group"><label>Para</label><input id="msgTo" type="text" placeholder="nombre@correo.com" />
+            </div>
+            <div class="form-group"><label>Asunto</label><input id="msgSubject" type="text"
+                    placeholder="Asunto del mensaje" /></div>
+            <div class="form-group"><label>Mensaje</label>
+                <textarea id="msgBody" rows="5" placeholder="Escribe tu mensaje aquí..."
+                    style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:12px;color:var(--text-primary);font-family:inherit;font-size:13px;resize:vertical;outline:none;width:100%;"></textarea>
+            </div>
+            <button class="btn-primary full-width large-btn" onclick="sendMessage()">📨 Enviar mensaje</button>
+        </div>
+    </div>
+
+    <!-- AUTOR DETALLE -->
+    <div class="modal modal-sm" id="authorModal">
+        <button class="modal-x" onclick="closeModal()">✕</button>
+        <div id="authorModalContent"></div>
+    </div>
+
+    <!-- AYUDA -->
+    <div class="modal modal-sm" id="helpModal">
+        <div class="modal-header">
+            <h2>❓ Centro de ayuda</h2><button class="modal-x rel" onclick="closeModal()">✕</button>
+        </div>
+        <div class="help-body">
+            <div class="help-item" onclick="showToast('📦 Tiempo de entrega: 3-5 días hábiles')"><span>📦</span>
+                <div><strong>¿Cuánto tarda el envío?</strong>
+                    <p>3-5 días hábiles a nivel nacional.</p>
+                </div>
+            </div>
+            <div class="help-item" onclick="showToast('↩️ Puedes devolver cualquier libro en 30 días')"><span>↩️</span>
+                <div><strong>¿Cómo hago una devolución?</strong>
+                    <p>Tienes 30 días desde la compra.</p>
+                </div>
+            </div>
+            <div class="help-item" onclick="showToast('💳 Aceptamos Visa, Mastercard y PSE')"><span>💳</span>
+                <div><strong>¿Qué métodos de pago aceptan?</strong>
+                    <p>Visa, Mastercard, PSE y contra-entrega.</p>
+                </div>
+            </div>
+            <div class="help-item" onclick="showToast('📱 La app móvil está en desarrollo')"><span>📱</span>
+                <div><strong>¿Tienen app móvil?</strong>
+                    <p>Próximamente en iOS y Android.</p>
+                </div>
+            </div>
+            <div class="help-item" onclick="openContactModal();closeModal()"><span>💬</span>
+                <div><strong>¿Necesitas más ayuda?</strong>
+                    <p>Contáctanos directamente.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACTO -->
+    <div class="modal modal-sm" id="contactModal">
+        <div class="modal-header">
+            <h2>💬 Contáctanos</h2><button class="modal-x rel" onclick="closeModal()">✕</button>
+        </div>
+        <div class="checkout-body">
+            <div class="contact-info-row"><span>📍</span><span>Cra 7 #74-21, Bogotá, Colombia</span></div>
+            <div class="contact-info-row"><span>📞</span><span>+57 601 234 5678</span></div>
+            <div class="contact-info-row"><span>✉️</span><span>hola@ysbooks.co</span></div>
+            <div class="form-group" style="margin-top:12px"><label>Tu nombre</label><input id="ctName" type="text"
+                    placeholder="Juan García" /></div>
+            <div class="form-group"><label>Tu correo</label><input id="ctEmail" type="email"
+                    placeholder="juan@correo.com" /></div>
+            <div class="form-group"><label>Mensaje</label>
+                <textarea id="ctMsg" rows="4" placeholder="¿En qué podemos ayudarte?"
+                    style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:12px;color:var(--text-primary);font-family:inherit;font-size:13px;resize:vertical;outline:none;width:100%;"></textarea>
+            </div>
+            <button class="btn-primary full-width large-btn" onclick="sendContact()">Enviar mensaje</button>
+        </div>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast"></div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/app.js"></script>
+    <script src='js/components.js'></script>
+    <div id="header"></div>
+    <div id="sidebar"></div>
+    <main id="main-content"></main>
+    <div id="footer"></div>
+
+    <template id="productTemplate">
+        <div class="card">
+            <img class="image">
+            <h3 class="name"></h3>
+            <p class="price"></p>
+        </div>
+    </template>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
