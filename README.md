@@ -167,6 +167,10 @@ Buenas prácticas reales:
 | Indentación | 2 espacios |
 
 ---
+## Autoras
+ 1. Yeray Alvarez
+ 2. Skarik Barbosa
 
-Proyecto educativo — Primer parcial de Desarrollo Web
-Autoras Yeray Alvarez- Skarik Barbosa
+---
+
+ Proyecto educativo — Primer parcial de Desarrollo Web
