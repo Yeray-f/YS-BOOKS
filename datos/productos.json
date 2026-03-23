@@ -1,0 +1,247 @@
+[
+    {
+        "name": "Roba como un artista: las 10 cosas que nadie te ha dicho acerca de ser creativo",
+        "price": 72000,
+        "image": "https://i.pinimg.com/1200x/c1/60/b7/c160b7b44b5d8a2be7ee355467a08734.jpg",
+        "category": "arte",
+        "author": "Austin Kleon"
+    },
+    {
+        "name": "Aprende a promocionar tu trabajo: 10 recursos para artistas, diseñadores y creativos",
+        "price": 78571,
+        "image": "https://i.pinimg.com/736x/6b/79/24/6b79245833fee4fdba37508005650c7b.jpg",
+        "category": "arte",
+        "author": "Austin Kleon"
+    },
+    {
+        "name": "Roba a un artista: El diario",
+        "price": 82143,
+        "image": "https://i.pinimg.com/736x/c0/7c/a0/c07ca0e4d1e7513b28349d677317e847.jpg",
+        "category": "arte",
+        "author": "Austin Kleon"
+    },
+    {
+        "name": "Newspaper Blackout",
+        "price": 150148,
+        "image": "https://i.pinimg.com/736x/22/e1/8d/22e18da05e2ce520a09aa8b17ac8c518.jpg",
+        "category": "arte",
+        "author": "Austin Kleon"
+    },
+    {
+        "name": "Sigue avanzando 10 formas para mantenerse creativo en buenos y malos momentos",
+        "price": 65477,
+        "image": "https://i.pinimg.com/1200x/e1/2d/2b/e12d2bd52e239d721cb61fe537761b12.jpg",
+        "category": "arte",
+        "author": "Austin Kleon"
+    },
+    {
+        "name": "El sutil arte de que (casi todo) te importe una mierda",
+        "price": 71249,
+        "image": "https://i.pinimg.com/736x/ec/59/4d/ec594de136b40ebdb87ca05ce4e6eb33.jpg",
+        "category": "psicologia",
+        "author": "Mark Manson"
+    },
+    {
+        "name": "Todo está j*dido",
+        "price": 85499,
+        "image": "https://i.pinimg.com/736x/f5/df/a9/f5dfa98441f5d700e66c664bd58372cf.jpg",
+        "category": "psicologia",
+        "author": "Mark Manson"
+    },
+    {
+        "name": "El Amor No Es Suficiente",
+        "price": 60638,
+        "image": "https://i.pinimg.com/736x/d1/66/a3/d166a32eff44f4bd1a21aff3ca8db63c.jpg",
+        "category": "psicologia",
+        "author": "Mark Manson"
+    },
+    {
+        "name": "will",
+        "price": 49610,
+        "image": "https://i.pinimg.com/736x/0d/46/2e/0d462e5899f7122e86104e80b3fb419b.jpg",
+        "category": "psicologia",
+        "author": "Mark Manson"
+    },
+    {
+        "name": "models attract women through honesty",
+        "price": 71490,
+        "image": "https://i.pinimg.com/736x/77/4f/47/774f47497b0b35f20065326cac457df3.jpg",
+        "category": "psicologia",
+        "author": "Mark Manson"
+    },
+    {
+        "name": "Asesinato en el Orient Express",
+        "price": 44955,
+        "image": "https://i.pinimg.com/736x/bd/3a/bc/bd3abcc90208aec1ba49ddba6fb57dc5.jpg",
+        "category": "misterio",
+        "author": "Agatha Christie"
+    },
+    {
+        "name": "La casa torcida",
+        "price": 83986,
+        "image": "https://i.pinimg.com/736x/da/df/72/dadf7273c8aab7a2df10c91b8d95a690.jpg",
+        "category": "misterio",
+        "author": "Agatha Christie"
+    },
+    {
+        "name": "Muerte en el Nilo",
+        "price": 43724,
+        "image": "https://i.pinimg.com/736x/6f/01/72/6f017252aeba67683f2e3688ca305428.jpg",
+        "category": "misterio",
+        "author": "Agatha Christie"
+    },
+    {
+        "name": "El asesinato de Roger Ackroyd",
+        "price": 54723,
+        "image": "https://i.pinimg.com/736x/e3/f8/73/e3f8736044ee8c995354ca6f093f821b.jpg",
+        "category": "misterio",
+        "author": "Agatha Christie"
+    },
+    {
+        "name": "Y no quedó ninguno",
+        "price": 27000,
+        "image": "https://i.pinimg.com/736x/cf/69/47/cf694752307ad7bd026abd7221caf6cd.jpg",
+        "category": "misterio",
+        "author": "Agatha Christie"
+    },
+    {
+        "name": "El poder de la mente subconsciente",
+        "price": 38292,
+        "image": "https://i.pinimg.com/736x/8a/e0/2c/8ae02c0b0283b732117a8ac8236a38c5.jpg",
+        "category": "espiritualidad",
+        "author": "Joseph Murphy"
+    },
+    {
+        "name": "La magia de la fe",
+        "price": 187792,
+        "image": "https://i.pinimg.com/1200x/52/c3/61/52c36157950d5775e4425c1212c2a4e3.jpg",
+        "category": "espiritualidad",
+        "author": "Joseph Murphy"
+    },
+    {
+        "name": "joseph murphy how to use your healing power",
+        "price": 120708,
+        "image": "https://i.pinimg.com/736x/aa/37/2b/aa372b0c2b6dfc324f5f50ac4f309179.jpg",
+        "category": "espiritualidad",
+        "author": "Joseph Murphy"
+    },
+    {
+        "name": "joseph murphy how to attract money",
+        "price": 66181,
+        "image": "https://i.pinimg.com/736x/e8/ba/e0/e8bae0461fb59630cf48cf7a7fbd5c0e.jpg",
+        "category": "espiritualidad",
+        "author": "Joseph Murphy"
+    },
+    {
+        "name": "telepsychics",
+        "price": 78920,
+        "image": "https://i.pinimg.com/736x/fd/8a/2a/fd8a2acb1673c68d7594efd1b6f6209a.jpg",
+        "category": "espiritualidad",
+        "author": "Joseph Murphy"
+    },
+    {
+        "name": "El alquimista",
+        "price": 41400,
+        "image": "https://i.pinimg.com/736x/ee/fd/ee/eefdeefe02a77de2b2d10cf6e05d535a.jpg",
+        "category": "novela",
+        "author": "Paulo Coelho"
+    },
+    {
+        "name": "Once minutos",
+        "price": 72292,
+        "image": "https://i.pinimg.com/1200x/57/2b/3e/572b3e9b6e2493ba0bb4c4251ad6d318.jpg",
+        "category": "novela",
+        "author": "Paulo Coelho"
+    },
+    {
+        "name": "El Peregrino de Compostela",
+        "price": 47487,
+        "image": "http://i.pinimg.com/736x/ff/a4/83/ffa483a598ec37cfb011728eb278c9e2.jpg",
+        "category": "novela",
+        "author": "Paulo Coelho"
+    },
+    {
+        "name": "Adulterio (novela)",
+        "price": 31850,
+        "image": "https://i.pinimg.com/736x/29/fc/60/29fc60f05b7907232861ca3b82f920b3.jpg",
+        "category": "novela",
+        "author": "Paulo Coelho"
+    },
+    {
+        "name": "Maktub",
+        "price": 36099,
+        "image": "https://i.pinimg.com/736x/e7/9a/96/e79a969443ea880d514ad0f0c6e85651.jpg",
+        "category": "novela",
+        "author": "Paulo Coelho"
+    },
+    {
+        "name": "Sapiens: De animales a dioses",
+        "price": 69261,
+        "image": "https://i.pinimg.com/1200x/ff/44/10/ff4410b8b9e9aed2f59669a5f0648565.jpg",
+        "category": "historia",
+        "author": "Yuval Noah Harari"
+    },
+    {
+        "name": "Homo deus",
+        "price": 114222,
+        "image": "https://i.pinimg.com/736x/fa/67/3e/fa673e206921da2417bff0fc3569add8.jpg",
+        "category": "historia",
+        "author": "Yuval Noah Harari"
+    },
+    {
+        "name": "Nexus",
+        "price": 107259,
+        "image": "https://i.pinimg.com/1200x/95/82/61/958261d1e5a63f603f90aecf6bad27fd.jpg",
+        "category": "historia",
+        "author": "Yuval Noah Harari"
+    },
+    {
+        "name": "21 lecciones para el siglo XXI",
+        "price": 107571,
+        "image": "https://i.pinimg.com/1200x/ef/05/1f/ef051f734ae35776b7fce4c393d33660.jpg",
+        "category": "historia",
+        "author": "Yuval Noah Harari"
+    },
+    {
+        "name": "Estudio en escarlata",
+        "price": 52249,
+        "image": "https://i.pinimg.com/736x/bf/5c/82/bf5c823b10d0a4c240b53551ac51accd.jpg",
+        "category": "detective",
+        "author": "Arthur Conan Doyle"
+    },
+    {
+        "name": "El sabueso de los Baskerville",
+        "price": 92245,
+        "image": "http://i.pinimg.com/736x/d8/68/56/d868569dc5d0e7a269953943a5a3de3e.jpg",
+        "category": "detective",
+        "author": "Arthur Conan Doyle"
+    },
+    {
+        "name": "El signo de los cuatro",
+        "price": 79915,
+        "image": "https://i.pinimg.com/736x/e1/4c/3b/e14c3b9ccf4a6f5a83d3fbb53be4de6c.jpg",
+        "category": "detective",
+        "author": "Arthur Conan Doyle"
+    },
+    {
+        "name": "Nunca te pares",
+        "price": 72000,
+        "image": "https://i.pinimg.com/736x/54/47/cd/5447cd9f9588fe1bbc9a7bf246c673ae.jpg",
+        "category": "negocios",
+        "author": "Phil Knight"
+    },
+    {
+        "name": "Shoe Dog: A Memoir by the Creator of Nike (en Inglés)",
+        "price": 67472,
+        "image": "https://images.cdn2.buscalibre.com/fit-in/360x360/b8/7c/b87c096545453f87dd952e54d3f447e1.jpg",
+        "category": "negocios",
+        "author": "Phil Knight"
+    },
+    {
+        "name": "L'art de la Victoire - Autobiographie du Fondateur de Nike (en Francés)",
+        "price": 54377,
+        "image": "https://images.cdn2.buscalibre.com/fit-in/360x360/1c/62/1c623e1e79ecea0ba730594ff06c13d8.jpg",
+        "category": "negocios",
+        "author": "Phil Knight"
+    }
+]

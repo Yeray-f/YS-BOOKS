@@ -1,0 +1,351 @@
+/* ============================================================
+   css/login.css — YS Books Login
+   Paleta: Azul noche / Violeta (Paleta Suculentas)
+============================================================ */
+
+:root {
+    --az-noche: #080c2e;
+    --az-real: #1a237e;
+    --az-medio: #283593;
+    --az-cielo: #42a5f5;
+    --violeta: #7c3aed;
+    --vio-claro: #a78bfa;
+    --purpura: #4a148c;
+    --texto: #f0f4ff;
+    --texto-2: #8fa3c7;
+    --borde: #1e2d6b;
+}
+
+/* ── RESET ── */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Outfit', 'DM Sans', 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    overflow: hidden;
+    background: var(--az-noche);
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+    border: none;
+    background: none;
+}
+
+/* ── FONDO ── */
+.lf-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.lf-bg svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* ── NAVBAR — mismo alto y estilo que el top-header del main ── */
+.lf-navbar {
+    position: relative;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    height: 62px;
+    /* idéntico al top-header */
+    padding: 0 24px;
+    background: rgba(17, 24, 39, 0.88);
+    /* mismo fondo que top-header */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(99, 120, 180, 0.18);
+    /* mismo --border */
+}
+
+/* Logo — misma proporción que el sidebar-logo del main */
+.lf-nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #eef2ff;
+    min-width: 150px;
+    /* ocupa el espacio del sidebar */
+    text-decoration: none;
+}
+
+.lf-nav-logo svg {
+    color: #a78bfa;
+    flex-shrink: 0;
+}
+
+/* Links centrales — mismo estilo que .header-link del main */
+.lf-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    flex: 1;
+    justify-content: center;
+}
+
+.lf-nav-links a {
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 13px;
+    color: #94a3b8;
+    transition: all .2s;
+}
+
+.lf-nav-links a:hover {
+    color: #eef2ff;
+    background: rgba(124, 58, 237, 0.15);
+}
+
+/* Botón "Iniciar sesión" — mismo estilo que .btn-primary del main */
+.lf-btn-nav {
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 20px;
+    background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4);
+    transition: opacity .2s, transform .2s, box-shadow .2s;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.lf-btn-nav:hover {
+    opacity: .9;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.5);
+}
+
+/* ── MODAL GLASSMORPHISM ── */
+.lf-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 300;
+    width: 390px;
+    max-width: calc(100vw - 32px);
+    padding: 40px 38px 32px;
+    background: rgba(17, 24, 80, 0.78);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(167, 139, 250, 0.25);
+    border-radius: 20px;
+    box-shadow:
+        0 8px 48px rgba(0, 0, 0, 0.65),
+        0 0 80px rgba(124, 58, 237, 0.12),
+        0 1px 0 rgba(167, 139, 250, 0.15) inset;
+}
+
+.lf-title {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: var(--texto);
+    text-align: center;
+    margin-bottom: 28px;
+    letter-spacing: -0.3px;
+}
+
+/* ── ERROR ── */
+.error-msg {
+    background: rgba(220, 38, 38, 0.15);
+    border: 1px solid rgba(220, 38, 38, 0.35);
+    border-radius: 8px;
+    color: #fc8181;
+    padding: 9px 13px;
+    font-size: 0.82rem;
+    margin-bottom: 14px;
+    display: none;
+}
+
+.error-msg.visible {
+    display: block;
+}
+
+/* ── CAMPOS ── */
+.lf-field {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.lf-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1.5px solid rgba(167, 139, 250, 0.4);
+    border-radius: 0;
+    padding: 10px 38px 10px 0;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9375rem;
+    color: var(--texto);
+    outline: none;
+    transition: border-color 0.25s ease;
+}
+
+.lf-input::placeholder {
+    color: rgba(167, 139, 250, 0.5);
+}
+
+.lf-input:focus {
+    border-bottom-color: var(--az-cielo);
+}
+
+.lf-icon {
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(167, 139, 250, 0.6);
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+}
+
+/* ── BOTÓN OJO (ver/ocultar contraseña) ── */
+.lf-eye-btn {
+    position: absolute;
+    right: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: rgba(167, 139, 250, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    border-radius: 4px;
+    transition: color 0.2s ease, background 0.2s ease;
+    z-index: 2;
+}
+
+.lf-eye-btn:hover {
+    color: var(--vio-claro);
+    background: rgba(124, 58, 237, 0.12);
+}
+
+.lf-eye-btn:focus {
+    outline: none;
+}
+
+/* ── BOTÓN SUBMIT ── */
+.lf-btn-submit {
+    width: 100%;
+    padding: 13px;
+    border-radius: 10px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--texto);
+    cursor: pointer;
+    border: 1px solid rgba(167, 139, 250, 0.15);
+    background: linear-gradient(135deg, var(--az-noche), var(--az-real));
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.15s ease, box-shadow 0.25s ease;
+    letter-spacing: 0.3px;
+    margin-top: 4px;
+}
+
+.lf-btn-submit::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--violeta), var(--az-cielo));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lf-btn-submit span {
+    position: relative;
+    z-index: 1;
+}
+
+.lf-btn-submit:hover {
+    box-shadow: 0 6px 24px rgba(124, 58, 237, 0.5);
+    transform: translateY(-1px);
+}
+
+.lf-btn-submit:hover::after {
+    opacity: 1;
+}
+
+.lf-btn-submit:active {
+    transform: scale(0.98);
+}
+
+.lf-btn-submit:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* ── HINT ── */
+.lf-hint {
+    background: rgba(66, 165, 245, 0.07);
+    border: 1px solid rgba(66, 165, 245, 0.2);
+    border-radius: 9px;
+    padding: 11px 13px;
+    margin-top: 18px;
+    font-size: 0.75rem;
+    color: rgba(167, 139, 250, 0.75);
+}
+
+.lf-hint strong {
+    color: var(--az-cielo);
+    display: block;
+    margin-bottom: 3px;
+}
+
+.lf-hint code {
+    background: rgba(124, 58, 237, 0.18);
+    color: var(--vio-claro);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+    .lf-navbar {
+        padding: 14px 20px;
+    }
+
+    .lf-nav-links {
+        display: none;
+    }
+
+    .lf-modal {
+        width: calc(100vw - 32px);
+        padding: 30px 22px 26px;
+    }
+}
