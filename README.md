@@ -74,7 +74,7 @@ async function cargarFragmento(url, contenedorId) {
 
 ---
 
-## ¿Qué son las plantillas (<template>)?
+## ¿Qué son las plantillas (`<template>`)?
 
 El elemento `<template>` es una etiqueta HTML especial que:
 
@@ -169,3 +169,4 @@ Buenas prácticas reales:
 ---
 
 Proyecto educativo — Primer parcial de Desarrollo Web
+Autoras Yeray Alvarez- Skarik Barbosa
