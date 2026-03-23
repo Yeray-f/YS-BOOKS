@@ -168,8 +168,9 @@ Buenas prácticas reales:
 
 ---
 ## Autoras
- 1. Yeray Alvarez
- 2. Skarik Barbosa
+
+- [Yeray Álvarez](https://github.com/Yeray-f)
+- [Skarik Barbosa](https://github.com/Skarik-L)
 
 ---
 

@@ -35,7 +35,7 @@ function renderProducts(products) {
 
 
 
-// 🔥 OVERRIDE FINAL (Web Component integrado)
+// OVERRIDE FINAL (Web Component integrado)
 function renderProducts(products) {
     const container = document.getElementById("main-content");
     container.innerHTML = "";

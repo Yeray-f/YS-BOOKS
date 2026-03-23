@@ -2,7 +2,7 @@
    js/login.js — YS Books
    Lógica de autenticación del formulario de inicio de sesión.
 
-   ⚠️  NOTA EDUCATIVA:
+   NOTA EDUCATIVA:
    Credenciales hardcodeadas solo para fines académicos.
    En producción siempre usa un backend + contraseñas encriptadas.
 ================================================================ */
