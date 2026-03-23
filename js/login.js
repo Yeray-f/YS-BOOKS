@@ -8,7 +8,7 @@
 ================================================================ */
 
 const USUARIO_VALIDO = 'admin';
-const PASSWORD_VALIDA = 'libreria2024';
+const PASSWORD_VALIDA = 'libreria2026';
 
 /**
  * togglePasswordVisibility — alterna entre mostrar y ocultar la contraseña.
