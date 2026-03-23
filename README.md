@@ -4,25 +4,27 @@
 > Tema de negocio: **Tienda de libros**
 _______________________________________________________________________________________________________________________________________________
 ## Estructura del proyecto (Carpetas)
+```bash
 libreria/
-├── index.html              ← Página principal
-├── login.html              ← Página de inicio de sesión
-├── README.md               ← Esta documentación
+├── index.html              # Página principal
+├── login.html              # Página de inicio de sesión
+├── README.md               # Documentación
 │
-├── /components             ← Fragmentos reutilizables (HTML)
-│   ├── header.html         ← Encabezado de la app
-│   ├── sidebar.html        ← Barra lateral con menú
-│   └── footer.html         ← Pie de página
+├── components/             # Fragmentos reutilizables
+│   ├── header.html         # Encabezado
+│   ├── sidebar.html        # Barra lateral
+│   └── footer.html         # Pie de página
 │
-├── /css
-│   └── styles.css          ← Todos los estilos de la aplicación
+├── css/
+│   └── styles.css          # Estilos globales
 │
-├── /js
-│   ├── login.js            ← Lógica del formulario de login
-│   └── main.js             ← Lógica principal (fetch, templates, web components)
+├── js/
+│   ├── login.js            # Lógica de autenticación
+│   └── main.js             # Lógica principal (fetch, templates, components)
 │
-└── /data
-    └── products.json       ← Base de datos de libros en formato JSON
+└── data/
+    └── products.json       # Base de datos de libros
+```
 _______________________________________________________________________________________________________________________________________________
 
 ## ¿Qué es la Modularización?
@@ -65,7 +67,7 @@ async function cargarFragmento(url, contenedorId) {
 _______________________________________________________________________________________________________________________________________________
 
 
-## ¿Qué son las Plantillas (<template>)?
+## ¿Qué son las Plantillas **(<template>)**?
 
 El elemento `<template>` es una etiqueta HTML especial que:
 - El navegador la parsea (entiende) pero no la muestra
